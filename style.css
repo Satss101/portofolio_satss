@@ -1,546 +1,236 @@
-/* ================= AKZENTUASI WARNA UTAMA ================= */
+/* ================= 1. ROOT VARIABEL & TEMA ================= */
 :root {
     --primary-red: #E50914; 
-    --primary-red-hover: #B80710;
-    --transition-speed: 0.25s;
+    --primary-red-hover: #ff1e2a;
+    --transition-speed: 0.3s;
 }
 
-/* PENGATURAN WARNA TEMA GELAP */
 [data-theme="dark"] {
-    --bg-color: #0c0c0e;
-    --card-bg: #16161a;
-    --text-color: #f1f1f3;
-    --text-muted: #94a3b8;
-    --border-color: #27272a;
-    --navbar-bg: rgba(12, 12, 14, 0.85);
+    --bg-color: #0c0c0e; --card-bg: #16161a; --text-color: #f1f1f3;
+    --text-muted: #94a3b8; --border-color: #27272a; --navbar-bg: rgba(12, 12, 14, 0.95);
 }
 
-/* PENGATURAN WARNA TEMA TERANG */
 [data-theme="light"] {
-    --bg-color: #f8fafc;
-    --card-bg: #ffffff;
-    --text-color: #0f172a;
-    --text-muted: #64748b;
-    --border-color: #e2e8f0;
-    --navbar-bg: rgba(248, 250, 252, 0.85);
+    --bg-color: #f8fafc; --card-bg: #ffffff; --text-color: #0f172a;
+    --text-muted: #64748b; --border-color: #e2e8f0; --navbar-bg: rgba(248, 250, 252, 0.95);
 }
 
-/* ================= RESET DASAR ================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+* { 
+    margin: 0; padding: 0; box-sizing: border-box; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color var(--transition-speed), color var(--transition-speed);
-    overflow-x: hidden;
+body { 
+    background-color: var(--bg-color); color: var(--text-color); 
+    transition: background-color 0.3s, color 0.3s; 
+    display: flex; flex-direction: column; min-height: 100vh;
 }
 
-.highlight {
-    color: var(--primary-red);
-}
-
-/* ================= NAVIGASI BAR ================= */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: var(--navbar-bg);
-    border-bottom: 1px solid var(--border-color);
-    z-index: 1000;
-    backdrop-filter: blur(12px);
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.3rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 8px;
-}
-
-.nav-btn {
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    font-weight: 500;
-    cursor: pointer;
-    padding: 8px 16px;
-    border-radius: 6px;
-    transition: all var(--transition-speed);
-}
-
-.nav-btn:hover, .nav-btn.active {
-    color: var(--text-color);
-    background-color: var(--border-color);
-    box-shadow: 0 2px 0px 0px var(--primary-red);
-}
-
-.theme-btn {
-    background: none;
-    border: none;
-    color: var(--text-color);
-    font-size: 1.1rem;
-    cursor: pointer;
-    padding: 5px;
-}
-
-/* ================= KONTEN SPA BINDING ================= */
-.main-content {
-    max-width: 1200px;
-    margin: 90px auto 60px auto;
-    padding: 0 20px;
-}
-
-.tab-content {
-    display: none;
-    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.tab-content.active-tab {
-    display: block;
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ================= HOME PAGE STYLING ================= */
-.hero-section {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 50px;
-    align-items: center;
-    padding: 20px 0;
-}
-
-.hero-text h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    line-height: 1.15;
-    margin-bottom: 8px;
-}
-
-.subtitle {
-    font-size: 1.4rem;
-    color: var(--text-muted);
-    font-weight: 400;
-    margin-bottom: 12px;
-}
-
-.motto {
-    font-style: italic;
-    color: var(--primary-red);
-    font-weight: 500;
-    margin-bottom: 20px;
-}
-
-.about-me {
-    line-height: 1.7;
-    margin-bottom: 25px;
-    color: var(--text-color);
-    opacity: 0.9;
-}
-
-/* Desain Frame Foto Profil Bulat/Kotak Halus */
-.hero-visual {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.profile-frame {
-    width: 220px;
-    height: 220px;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 3px solid var(--primary-red);
-    box-shadow: 0 10px 30px rgba(229, 9, 20, 0.15);
-}
-
-.profile-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-}
-
-/* Tag List */
-.info-group h3 {
-    font-size: 1.05rem;
-    margin-bottom: 8px;
-    color: var(--text-color);
-}
-
-.tags-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.tag-item {
-    background-color: rgba(229, 9, 20, 0.08);
-    border: 1px solid rgba(229, 9, 20, 0.3);
-    color: var(--text-color);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 500;
-}
-
-.tag-item.bg-gray {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-}
-
-/* RADAR CHART */
-.radar-chart-container {
-    width: 100%;
-    max-width: 280px;
-    margin: 15px auto 0 auto;
-}
-
-.grid-line, .axis-line {
-    fill: none;
-    stroke: var(--border-color);
-    stroke-width: 0.6;
-}
-
-.chart-label {
-    fill: var(--text-color);
-    font-size: 4px;
-    font-weight: 600;
-}
+.highlight { color: var(--primary-red); }
 
-.skill-area {
-    fill: rgba(229, 9, 20, 0.25);
-    stroke: var(--primary-red);
-    stroke-width: 1.2;
-}
-
-/* ================= TIMELINE (JOURNEY) ================= */
-.section-title {
-    font-size: 2.2rem;
-    font-weight: 800;
-    margin-bottom: 35px;
-}
-
-.timeline {
-    border-left: 2px solid var(--border-color);
-    padding-left: 25px;
-    margin-left: 10px;
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 35px;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -32px;
-    top: 6px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: var(--primary-red);
-    border: 2px solid var(--bg-color);
-}
-
-.timeline-date {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--primary-red);
-    margin-bottom: 6px;
-}
-
-.timeline-content {
-    background-color: var(--card-bg);
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-}
-
-/* ================= EXPERIENCE TAB & FILTER ================= */
-.filter-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 30px;
-}
-
-.filter-btn {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    color: var(--text-color);
-    padding: 8px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: all var(--transition-speed);
-}
-
-.filter-btn.active, .filter-btn:hover {
-    background-color: var(--primary-red);
-    color: #ffffff;
-    border-color: var(--primary-red);
-}
-
-.experience-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 20px;
-}
-
-.exp-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    padding: 24px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.exp-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--primary-red);
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 12px;
-    font-size: 0.8rem;
-}
-
-.badge {
-    background-color: var(--border-color);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-weight: 600;
-}
-
-.red-badge {
-    background-color: rgba(229, 9, 20, 0.15);
-    color: var(--primary-red);
-}
-
-.short-desc {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-top: 8px;
-}
-
-/* ================= AWARDS & CERTIFICATIONS ================= */
-.awards-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.award-item {
-    display: flex;
-    gap: 20px;
-    background-color: var(--card-bg);
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    align-items: center;
-}
-
-.award-icon {
-    font-size: 2.2rem;
-    color: var(--primary-red);
-}
+/* Efek Interaktif Teks Bercahaya Saat Dihover */
+.glow-text { transition: text-shadow 0.3s ease, color 0.3s ease; cursor: pointer; }
+.glow-text:hover { color: #ffffff; text-shadow: 0 0 15px var(--primary-red), 0 0 30px var(--primary-red); }
 
-.certifications-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+/* ================= 2. NAVBAR ================= */
+.navbar { 
+    position: fixed; top: 0; left: 0; right: 0; 
+    background: var(--navbar-bg); border-bottom: 1px solid var(--border-color); 
+    z-index: 9999; backdrop-filter: blur(10px); 
 }
 
-.cert-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    padding: 25px;
-    border-radius: 8px;
-    text-align: center;
+.nav-container { 
+    max-width: 1200px; margin: 0 auto; padding: 15px 20px; 
+    display: flex; justify-content: space-between; align-items: center; 
 }
 
-.cert-icon {
-    font-size: 2.5rem;
-    color: var(--primary-red);
-    margin-bottom: 15px;
-}
-
-/* ================= CONTACT LAYOUT DENGAN FOTO ================= */
-.contact-container {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    padding: 40px;
-    border-radius: 12px;
-}
-
-.contact-layout {
-    display: flex;
-    gap: 45px;
-    align-items: center;
-}
-
-.contact-photo-frame {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid var(--primary-red);
-    flex-shrink: 0;
-}
+.logo { font-size: 1.4rem; font-weight: bold; text-transform: uppercase; }
 
-.contact-avatar {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.contact-methods {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 15px;
-}
+.nav-links { display: flex; gap: 8px; }
 
-.contact-link {
-    color: var(--text-color);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    font-weight: 500;
+.nav-btn { 
+    background: transparent; border: none; color: var(--text-muted); 
+    font-size: 0.95rem; font-weight: 500; cursor: pointer; 
+    padding: 8px 12px; border-radius: 6px; transition: 0.2s ease-in-out; 
 }
 
-.contact-link:hover {
-    color: var(--primary-red);
+.nav-btn:hover, .nav-btn.active { 
+    color: var(--text-color); background: var(--border-color); 
+    box-shadow: 0 2px 0 var(--primary-red); 
 }
 
-.download-btn-main {
-    margin-top: 10px;
-    background-color: var(--primary-red);
-    color: #ffffff;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    width: fit-content;
-    transition: background var(--transition-speed);
+.theme-btn { 
+    background: transparent; border: none; color: var(--text-color); 
+    cursor: pointer; font-size: 1.2rem; padding: 5px; 
 }
 
-.download-btn-main:hover {
-    background-color: var(--primary-red-hover);
+/* ================= 3. KONTEN SPA ================= */
+.main-content { 
+    max-width: 1200px; margin: 100px auto 40px auto; 
+    padding: 0 20px; flex-grow: 1; width: 100%;
 }
 
-/* ================= MODAL & HOVER TOOLTIP EXPERTISE ================= */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(4px);
-    align-items: center;
-    justify-content: center;
-}
+.tab-content { display: none; opacity: 0; transform: translateY(15px); transition: all 0.4s ease; }
+.tab-content.active-tab { opacity: 1; transform: translateY(0); }
 
-.modal-content {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    padding: 30px;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 580px;
-    position: relative;
-}
+.section-title { font-size: 2.2rem; font-weight: bold; margin-bottom: 30px; }
 
-.close-btn {
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: var(--text-muted);
-}
+/* ================= 4. HOME TAB ================= */
+.hero-section { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.hero-text h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 10px; }
+.subtitle { font-size: 1.4rem; color: var(--text-muted); margin-bottom: 12px; }
+.journey-year { font-size: 1rem; color: var(--primary-red); margin-bottom: 12px; }
+.motto { font-style: italic; color: var(--primary-red); margin-bottom: 20px; font-weight: 500; }
+.about-me { line-height: 1.7; font-size: 1.05rem; }
 
-.close-btn:hover {
-    color: var(--primary-red);
-}
+.hero-visual { display: flex; flex-direction: column; align-items: center; gap: 25px; }
 
-/* List Tools dengan Tooltip bawaan saat Hover */
-.tech-tools {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 20px;
+.profile-frame { 
+    width: 230px; height: 230px; border-radius: 20px; overflow: hidden; 
+    border: 3px solid var(--primary-red); transition: transform 0.3s ease; 
 }
+.profile-frame:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(229,9,20,0.5); }
+.profile-img { width: 100%; height: 100%; object-fit: cover; }
 
-.tool-icon {
-    position: relative;
-    background: var(--bg-color);
-    border: 1px solid var(--border-color);
-    padding: 6px 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 500;
+/* Info Akademik S1 */
+.academic-info { 
+    display: flex; align-items: center; gap: 18px; background: var(--card-bg); 
+    padding: 20px 25px; border-radius: 12px; border: 1px solid var(--border-color); 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); transition: 0.3s; width: 100%; max-width: 480px;
 }
+.academic-info:hover { border-color: var(--primary-red); transform: translateY(-3px); }
 
-/* Mekanisme CSS Tooltip Pop Up saat kursor didekatkan */
-.tool-icon:hover::after {
-    content: attr(data-expertise);
-    position: absolute;
-    bottom: 125%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--primary-red);
-    color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    white-space: nowrap;
-    z-index: 999;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+.univ-logo-frame { 
+    width: 65px; height: 65px; border-radius: 50%; background: #fff; 
+    display: flex; justify-content: center; align-items: center; flex-shrink: 0;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
 }
+.univ-logo { width: 85%; height: 85%; object-fit: contain; }
+.academic-text h4 { font-size: 1rem; color: var(--text-color); margin-bottom: 5px; font-weight: bold;}
+.faculty { font-size: 0.9rem; color: var(--primary-red); font-weight: 600; margin-bottom: 2px;}
+.major { font-size: 0.85rem; color: var(--text-color); margin-bottom: 2px; }
+.study-year { font-size: 0.8rem; color: var(--text-muted); font-style: italic; }
 
-/* RESPONSIVITAS DEVICE SELULER */
-@media (max-width: 768px) {
-    .hero-section { grid-template-columns: 1fr; gap: 30px; }
-    .contact-layout { flex-direction: column; text-align: center; gap: 20px; }
-    .nav-container { flex-direction: column; gap: 10px; }
-    .nav-links { flex-wrap: wrap; justify-content: center; }
+/* ================= 5. JOURNEY TAB ================= */
+.journey-list { display: flex; flex-direction: column; gap: 20px; margin-bottom: 30px; }
+
+.journey-card { 
+    display: flex; gap: 20px; background: var(--card-bg); padding: 25px; 
+    border-radius: 12px; border: 1px solid var(--border-color); 
+    position: relative; overflow: hidden; transition: all 0.4s ease; 
+}
+.journey-card:hover { transform: translateY(-3px); border-color: var(--primary-red); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+
+.journey-logo-frame { 
+    width: 50px; height: 50px; border-radius: 50%; background: #fff; 
+    display: flex; justify-content: center; align-items: center; flex-shrink: 0;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+.journey-logo { 
+    width: 85%; height: 85%; object-fit: contain; 
+}
+.journey-info h3 { font-size: 1.25rem; margin-bottom: 4px; }
+.journey-info .subtitle { color: var(--primary-red); font-size: 0.95rem; margin-bottom: 10px; font-weight: 600; }
+.journey-info .journey-year { color: var(--primary-red); font-size: 1rem; margin-bottom: 12px; }
+
+/* Animasi Muncul Spesifikasi Skill saat Diarahkan */
+.skill-reveal { 
+    position: absolute; right: 0; top: 0; height: 100%; width: 45%; 
+    background: linear-gradient(90deg, transparent, var(--card-bg) 20%, var(--card-bg) 100%); 
+    display: flex; flex-direction: column; justify-content: center; 
+    padding-left: 50px; padding-right: 30px; opacity: 0; 
+    transform: translateX(50px); transition: all 0.4s ease; pointer-events: none; 
+}
+.journey-card:hover .skill-reveal { opacity: 1; transform: translateX(0); pointer-events: auto; }
+.skill-reveal h4 { margin-bottom: 8px; color: var(--text-color); border-bottom: 1px solid var(--border-color); padding-bottom: 5px;}
+.skill-bar { display: flex; justify-content: space-between; font-size: 0.9rem; margin-top: 6px; }
+.skill-dots { color: var(--primary-red); letter-spacing: 2px; }
+
+.comprehensive-skills { background: var(--card-bg); padding: 25px; border-radius: 12px; border: 1px solid var(--border-color); }
+.tags-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+.tag-item { 
+    background: rgba(229,9,20,0.1); color: var(--primary-red); padding: 8px 16px; 
+    border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(229,9,20,0.3); 
+    transition: 0.3s; cursor: default;
+}
+.tag-item:hover { background: var(--primary-red); color: white; }
+.tag-item.bg-gray { background: var(--border-color); color: var(--text-color); border: none; }
+.tag-item.bg-gray:hover { background: var(--text-color); color: var(--bg-color); }
+
+/* ================= 6. SPLIT LAYOUT ================= */
+.split-layout { display: grid; grid-template-columns: 260px 1fr; gap: 35px; align-items: start; }
+
+.split-sidebar { 
+    display: flex; flex-direction: column; gap: 10px; 
+    border-right: 2px solid var(--border-color); padding-right: 20px; 
+    position: sticky; top: 100px; /* Membuat menu tetap menempel saat di-scroll */
+}
+.sidebar-btn { 
+    text-align: left; background: transparent; border: none; padding: 14px 20px; 
+    font-size: 1rem; color: var(--text-muted); border-radius: 8px; 
+    cursor: pointer; transition: 0.3s; font-weight: 500; border: 1px solid transparent;
+}
+.sidebar-btn:hover { background: var(--border-color); color: var(--text-color); }
+.sidebar-btn.active { background: var(--primary-red); color: white; box-shadow: 0 4px 15px rgba(229,9,20,0.3); }
+
+.split-content { display: flex; flex-direction: column; gap: 15px; }
+.card-item { 
+    background: var(--card-bg); padding: 22px; border-radius: 10px; 
+    border: 1px solid var(--border-color); transition: all 0.3s ease; 
+}
+.card-item:hover { border-color: var(--primary-red); transform: translateX(6px); }
+.card-item h3 { font-size: 1.15rem; margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
+.card-item .date { color: var(--primary-red); font-size: 0.9rem; font-weight: bold; margin-bottom: 10px; }
+
+/* ================= 7. CONTACT TAB ================= */
+.contact-container { text-align: center; background: var(--card-bg); padding: 60px 30px; border-radius: 12px; border: 1px solid var(--border-color); }
+.contact-methods { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 25px; }
+.contact-link { color: var(--text-color); text-decoration: none; font-size: 1.1rem; transition: 0.3s; font-weight: 500; }
+.contact-link:hover { color: var(--primary-red); letter-spacing: 0.5px; } /* Efek interaktif huruf merenggang sedikit */
+
+.download-btn-main { 
+    margin-top: 25px; background: var(--primary-red); color: white; 
+    padding: 14px 28px; border-radius: 8px; text-decoration: none; 
+    font-weight: bold; transition: 0.3s; display: inline-flex; align-items: center; gap: 10px; 
+}
+.download-btn-main:hover { 
+    background: var(--primary-red-hover); box-shadow: 0 5px 20px rgba(229,9,20,0.4); 
+    transform: translateY(-4px); 
+}
+
+/* ================= 8. FOOTER GLOBAL ================= */
+.site-footer { 
+    width: 100%; background: var(--card-bg); border-top: 1px solid var(--border-color); 
+    padding: 25px 0; text-align: center; margin-top: auto; 
+}
+.footer-content { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.footer-social { display: flex; gap: 20px; }
+.footer-social a { color: var(--text-muted); font-size: 1.3rem; transition: 0.3s; }
+.footer-social a:hover { color: var(--primary-red); transform: scale(1.2); }
+
+/* ================= 9. RESPONSIVE MOBILE ================= */
+@media (max-width: 850px) {
+    .nav-container { flex-direction: column; padding: 12px; gap: 15px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; width: 100%; }
+    .nav-btn { padding: 8px 12px; font-size: 0.9rem; }
+    
+    .main-content { margin-top: 140px; }
+    
+    .hero-section { grid-template-columns: 1fr; text-align: center; }
+    .academic-info { flex-direction: column; text-align: center; margin: 0 auto; padding: 20px; }
+    
+    .split-layout { grid-template-columns: 1fr; gap: 20px; }
+    .split-sidebar { 
+        position: static; border-right: none; border-bottom: 2px solid var(--border-color); 
+        padding-bottom: 15px; padding-right: 0; flex-direction: row; flex-wrap: wrap; justify-content: center; 
+    }
+    .sidebar-btn { text-align: center; padding: 10px 15px; }
+    
+    /* Penyesuaian Skill Reveal untuk Mode Layar Kecil */
+    .journey-card { flex-direction: column; align-items: flex-start; text-align: left; }
+    .skill-reveal { 
+        position: relative; width: 100%; transform: none; opacity: 1; 
+        padding: 15px 0 0 0; background: none; margin-top: 15px; 
+        border-top: 1px dashed var(--border-color); pointer-events: auto; 
+    }
 }
