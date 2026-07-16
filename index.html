@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bagus Satrio Wicaksono - Portofolio</title>
+    <title>Bagus Satrio_Portofolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -11,7 +11,7 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo glow-text">Bagus Satrio</div>
+            <div class="logo glow-text">Satrio.</div>
             <div class="nav-links">
                 <button id="nav-home" class="nav-btn active" onclick="switchTab('home')">Home</button>
                 <button id="nav-journey" class="nav-btn" onclick="switchTab('journey')">Journey</button>
@@ -26,20 +26,19 @@
 
     <main class="main-content">
 
-        <section id="home" class="tab-content active-tab" style="display: block;">
+        <section id="home" class="tab-content active-tab">
             <div class="hero-section">
                 <div class="hero-text">
                     <h1 class="glow-text">Bagus Satrio <span class="highlight">Wicaksono</span></h1>
                     <p class="subtitle">Electronic Engineer</p>
                     <p class="motto">"Strongest where systems get built and shape."</p>
                     <p class="about-me">
-                        Electronic Engineer with hands-on experience as a Manufacturing Engineer at Polytron Indonesia, specializing in Industrial 
-                        Internet of Things (IIoT), Embedded Systems, Machine Learning, Computer Vision, and 3D Design. Experienced in DSP, bare
-                        metal programming, and embedded software development for manufacturing applications. Contributed to AI and IoT based systems 
-                        across industrial and research projects, including robotics, web-based platforms, and rehabilitation systems with pose estimation. 
-                        Proficient in C/C++, Python, TensorFlow, MATLAB, STM32, ARM Cortex-M4, Arduino, CAD Design, and PCB Design. A fast 
-                        learner and detail-oriented engineer with strong problem-solving skills and a passion for developing innovative technology solutions. 
+                        Electronic Engineer dengan pengalaman praktis sebagai Manufacturing Engineer di Polytron Indonesia. Spesialisasi dalam Industrial Internet of Things (IIoT), Embedded Systems, Machine Learning, Computer Vision, dan 3D Design. Ahli dalam pemrograman bare-metal, pengembangan arsitektur perangkat keras cerdas, serta integrasi AI untuk kebutuhan automasi industri modern.
                     </p>
+                    <div class="cta-buttons">
+                        <button class="action-btn-primary" onclick="switchTab('journey')">Lihat Pengalaman</button>
+                        <button class="action-btn-secondary" onclick="switchTab('contact')">Mari Kolaborasi</button>
+                    </div>
                 </div>
 
                 <div class="hero-visual">
@@ -47,169 +46,157 @@
                         <img src="resources/photos/Bagus Satrio Wicaksono.jpg" alt="Bagus Satrio Wicaksono" class="profile-img">
                     </div>
                     
-                    <div class="academic-info">
+                    <div class="academic-info-card">
                         <div class="univ-logo-frame">
                             <img src="resources/photos/uksw.jpg" alt="UKSW Logo" class="univ-logo">
                         </div>
                         <div class="academic-text">
                             <h4>Universitas Kristen Satya Wacana</h4>
-                            <p class="faculty">Fakultas Teknik Elektro</p>
-                            <p class="major">Program Studi: S1 Teknik Elektro (GPA: 3.80)</p>
-                            <p class="study-year">Tahun Masuk: 2021 | Tahun Lulus: 2025</p>
+                            <p class="faculty">Fakultas Teknik Elektronika dan Komputer</p>
+                            <p class="major">S1 Teknik Elektro (IPK: 3.80 / 4.00)</p>
+                            <span class="study-year-badge">2021 – 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <h3>Diagram Radar Kompetensi</h3>
+                <p class="chart-desc">Visualisasi sebaran keahlian teknis utama berbasis pengembangan sistem mutakhir.</p>
+                
+                <div class="radar-chart-container">
+                    <svg viewBox="0 0 100 100" class="radar-svg">
+                        <polygon points="50,10 88,38 73,83 27,83 12,38" class="grid-line"></polygon>
+                        <polygon points="50,18 80,40 68,76 32,76 20,40" class="grid-line"></polygon>
+                        <polygon points="50,26 73,43 64,69 36,69 27,43" class="grid-line"></polygon>
+                        <polygon points="50,34 65,45 59,61 41,61 35,45" class="grid-line"></polygon>
+                        <polygon points="50,42 58,48 55,54 45,54 42,48" class="grid-line"></polygon>
+                        
+                        <line x1="50" y1="50" x2="50" y2="10" class="axis-line"></line>
+                        <line x1="50" y1="50" x2="88" y2="38" class="axis-line"></line>
+                        <line x1="50" y1="50" x2="73" y2="83" class="axis-line"></line>
+                        <line x1="50" y1="50" x2="27" y2="83" class="axis-line"></line>
+                        <line x1="50" y1="50" x2="12" y2="38" class="axis-line"></line>
+                        
+                        <polygon id="skill-polygon" points="" class="skill-area"></polygon>
+                        
+                        <text x="50" y="6" text-anchor="middle" class="chart-label">Electrical</text>
+                        <text x="91" y="38" text-anchor="start" class="chart-label">Mechanical</text>
+                        <text x="76" y="89" text-anchor="middle" class="chart-label">Firmware</text>
+                        <text x="24" y="89" text-anchor="middle" class="chart-label">Software</text>
+                        <text x="9" y="38" text-anchor="end" class="chart-label">Systems</text>
+                    </svg>
+                </div> -->
+            </div>
+        </section>
+
+        <section id="journey" class="tab-content">
+            <h2 class="section-title">My <span class="highlight">Journey & Core Skills</span></h2>
+            <div class="journey-grid-layout">
+                <div class="journey-right">
+                    <h3>Garis Waktu Karir & Edukasi</h3>
+                    <p class="chart-desc">Arahkan kursor atau sentuh kartu pengalaman untuk melihat rincian spesifikasi level keahlian (Skala 1 - 5).</p>
+                    
+                    <div class="timeline-container">
+                        <div class="timeline-card" onmouseenter="showTimelineSkills('polytron_full')">
+                            <span class="timeline-badge-date">Januari 2026 – Present</span>
+                            <h4>Fulltime Manufacturing Engineer</h4>
+                            <h5>PT Hartono Istana Teknologi (Polytron)</h5>
+                            <p>Merancang solusi Industri 4.0 lewat implementasi teknologi automasi dan arsitektur IIoT skala pabrik.</p>
+                            <div class="dynamic-skill-score" id="skills-polytron_full">
+                                <div class="score-row"><span>IIoT Architecture</span><span class="stars">★★★★★ 5.0</span></div>
+                                <div class="score-row"><span>Workflow Optimization</span><span class="stars">★★★★☆ 4.0</span></div>
+                                <div class="score-row"><span>Automation Control</span><span class="stars">★★★★★ 4.8</span></div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-card" onmouseenter="showTimelineSkills('polytron_intern')">
+                            <span class="timeline-badge-date">Sept 2024 – Maret 2025</span>
+                            <h4>Intern Research Function Checker Audio</h4>
+                            <h5>PT Hartono Istana Teknologi (Polytron)</h5>
+                            <p>Membangun perangkat Function Checker audio berbasis microchip bare-metal dengan pemotongan biaya produksi masif.</p>
+                            <div class="dynamic-skill-score" id="skills-polytron_intern">
+                                <div class="score-row"><span>Bare-Metal C</span><span class="stars">★★★★★ 5.0</span></div>
+                                <div class="score-row"><span>STM32 Hardware</span><span class="stars">★★★★★ 4.9</span></div>
+                                <div class="score-row"><span>Circuit Design</span><span class="stars">★★★★☆ 4.5</span></div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-card" onmouseenter="showTimelineSkills('dicoding')">
+                            <span class="timeline-badge-date">Agustus 2025 – Present</span>
+                            <h4>Freelance External Code Reviewer (ML)</h4>
+                            <h5>PT Dicoding Akademi Indonesia</h5>
+                            <p>Mengevaluasi standarisasi, skalabilitas, dan kebersihan kode pemrograman Machine Learning ribuan developer.</p>
+                            <div class="dynamic-skill-score" id="skills-dicoding">
+                                <div class="score-row"><span>Python Programming</span><span class="stars">★★★★★ 4.9</span></div>
+                                <div class="score-row"><span>Machine Learning Pipeline</span><span class="stars">★★★★★ 4.7</span></div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-card" onmouseenter="showTimelineSkills('inahef')">
+                            <span class="timeline-badge-date">Januari 2026 – Present</span>
+                            <h4>Intern Information Engineer</h4>
+                            <h5>PTPI</h5>
+                            <p>Merancang solusi automasi dan arsitektur IIoT skala pabrik.</p>
+                            <div class="dynamic-skill-score" id="skills-inahef">
+                                <div class="score-row"><span>IIoT Architecture</span><span class="stars">★★★★★ 5.0</span></div>
+                                <div class="score-row"><span>Workflow Optimization</span><span class="stars">★★★★☆ 4.0</span></div>
+                                <div class="score-row"><span>Automation Control</span><span class="stars">★★★★★ 4.8</span></div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-card" onmouseenter="showTimelineSkills('fds')">
+                            <span class="timeline-badge-date">Januari 2026 – Present</span>
+                            <h4>Intern Electronic Engineer</h4>
+                            <h5>PT Full Drone Solutions</h5>
+                            <p>Merancang solusi Industri arsitektur IIoT skala pabrik.</p>
+                            <div class="dynamic-skill-score" id="skills-fds">
+                                <div class="score-row"><span>IIoT Architecture</span><span class="stars">★★★★★ 5.0</span></div>
+                                <div class="score-row"><span>Workflow Optimization</span><span class="stars">★★★★☆ 4.0</span></div>
+                                <div class="score-row"><span>Automation Control</span><span class="stars">★★★★★ 4.8</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="journey-left">
+                    <div class="skills-matrix-box">
+                        <h4>Hard Skills Matrix</h4>
+                        <div class="matrix-tags">
+                            <span class="matrix-tag">C/C++</span>
+                            <span class="matrix-tag">Python</span>
+                            <span class="matrix-tag">STM32 (Cortex M4)</span>
+                            <span class="matrix-tag">Bare-Metal Programming</span>
+                            <span class="matrix-tag">TensorFlow</span>
+                            <span class="matrix-tag">YOLOv8 & v11</span>
+                            <span class="matrix-tag">Industrial IoT</span>
+                            <span class="matrix-tag">PCB Design (Altium/Eagle)</span>
+                            <span class="matrix-tag">Node-RED</span>
+                            <span class="matrix-tag">Modbus TCP</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="journey" class="tab-content">
-            <h2 class="section-title">My <span class="highlight">Journey</span></h2>
-            
-            <div class="journey-list">
-                <div class="journey-card">
-                    <div class="journey-logo-frame">
-                        <img src="resources/photos/polytron/polytron.jpg" alt="polytron" class="journey-logo">
-                    </div>
-                    <div class="journey-info">
-                        <h3>PT Hartono Istana Teknologi [Polytron Indonesia]</h3>
-                        <p class="subtitle">Manufacturing Engineer</p>
-                        <p class="journey-year">Jan 2026 - Present</p>
-                        <p>Mengoptimalkan efisiensi produksi manufaktur dan menerapkan solusi Industri 4.0 (IIoT & Otomasi).</p>
-                    </div>
-                    <div class="skill-reveal">
-                        <h4>Spesifikasi Skill:</h4>
-                        <div class="skill-bar"><span class="skill-name">IIoT Architecture</span><span class="skill-dots">★★★☆☆</span></div>
-                        <div class="skill-bar"><span class="skill-name">Workflow Analysis</span><span class="skill-dots">★★★☆☆</span></div>
-                        <div class="skill-bar"><span class="skill-name">Embedded System</span><span class="skill-dots">★★★★☆</span></div>
-                    </div>
-
-                    <div class="journey-info">
-                        <p class="subtitle">Research Intern Function Checker</p>
-                        <p class="journey-year">Sept 2024 - March 2025</p>
-                        <p>Mengoptimalkan efisiensi produksi manufaktur dan menerapkan solusi Industri 4.0 (IIoT & Otomasi).</p>
-                    </div>
-                    <div class="skill-reveal">
-                        <h4>Spesifikasi Skill:</h4>
-                        <div class="skill-bar"><span class="skill-name">IIoT Architecture</span><span class="skill-dots">★★★☆☆</span></div>
-                        <div class="skill-bar"><span class="skill-name">Workflow Analysis</span><span class="skill-dots">★★★☆☆</span></div>
-                        <div class="skill-bar"><span class="skill-name">Embedded System</span><span class="skill-dots">★★★★☆</span></div>
-                    </div>
-                </div>
-
-                <div class="journey-card">
-                    <div class="journey-logo-frame">
-                        <img src="resources/photos/dicoding/dicoding.png" alt="polytron" class="journey-logo">
-                    </div>
-                    <div class="journey-info">
-                        <h3>PT Dicoding Akademi Indonesia</h3>
-                        <p class="subtitle">Freelance External Code Reviewer</p>
-                        <p class="journey-year">Aug 2025 - Present</p>
-                        <p>Mengevaluasi submisi kode dari ratusan developer pada spesialisasi Machine Learning.</p>
-                    </div>
-                    <div class="skill-reveal">
-                        <h4>Spesifikasi Skill:</h4>
-                        <div class="skill-bar"><span class="skill-name">Machine Learning</span><span class="skill-dots">★★★★★</span></div>
-                        <div class="skill-bar"><span class="skill-name">Python</span><span class="skill-dots">★★★★★</span></div>
-                        <div class="skill-bar"><span class="skill-name">Code Optimization</span><span class="skill-dots">★★★★☆</span></div>
-                    </div>
-                </div>
-
-                <div class="journey-card">
-                    <div class="journey-logo-frame">
-                        <img src="resources/photos/inahef/inahef.jpg" alt="polytron" class="journey-logo">
-                    </div>
-                    <div class="journey-info">
-                        <h3>Information Engineer</h3>
-                        <p class="subtitle">PTPI</p>
-                        <p class="journey-year">Sept 2025 - Oct 2025</p>
-                        <p>Mengoptimalkan efisiensi produksi manufaktur dan menerapkan solusi Industri 4.0 (IIoT & Otomasi).</p>
-                    </div>
-                    <div class="skill-reveal">
-                        <h4>Spesifikasi Skill:</h4>
-                        <div class="skill-bar"><span class="skill-name">IIoT Architecture</span><span class="skill-dots">★★★☆☆</span></div>
-                        <div class="skill-bar"><span class="skill-name">Workflow Analysis</span><span class="skill-dots">★★★☆☆</span></div>
-                        <div class="skill-bar"><span class="skill-name">Embedded System</span><span class="skill-dots">★★★★☆</span></div>
-                    </div>
-                </div>
-
-                <div class="journey-card">
-                    <div class="journey-logo-frame">
-                        <img src="resources/photos/fds/full_drone_solutions_logo.jpg" alt="polytron" class="journey-logo">
-                    </div>
-                    <div class="journey-info">
-                        <h3>PT Full Drone Solution</h3>
-                        <p class="subtitle">Intern Electronic Engineer</p>
-                        <p class="journey-year">Feb 2024 - Jun 2024</p>
-                        <p>Pengembangan sistem elektronika dan kontrol praktis untuk teknologi UAV / Drone.</p>
-                    </div>
-                    <div class="skill-reveal">
-                        <h4>Spesifikasi Skill:</h4>
-                        <div class="skill-bar"><span class="skill-name">UAV Control Systems</span><span class="skill-dots">★★★★☆</span></div>
-                        <div class="skill-bar"><span class="skill-name">Electronics Design</span><span class="skill-dots">★★★★☆</span></div>
-                        <div class="skill-bar"><span class="skill-name">Troubleshooting</span><span class="skill-dots">★★★★★</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="comprehensive-skills">
-                <h3 style="margin-bottom:15px;">Technical & Interpersonal Skills</h3>
-                <div class="tags-container">
-                    <span class="tag-item">C/C++</span>
-                    <span class="tag-item">Python</span>
-                    <span class="tag-item">Cortex M4</span>
-                    <span class="tag-item">Arduino</span>
-                    <span class="tag-item">TensorFlow</span>
-                    <span class="tag-item">Computer Vision</span>
-                    <span class="tag-item">3D Design</span>
-                    <span class="tag-item">PCB</span>
-                    <span class="tag-item">IIoT</span>
-                    <span class="tag-item bg-gray">Critical Thinking</span>
-                    <span class="tag-item bg-gray">Problem Solving</span>
-                    <span class="tag-item bg-gray">Public Speaking</span>
-                </div>
-            </div>
-        </section>
-
         <section id="experience" class="tab-content">
-            <h2 class="section-title">Projects & <span class="highlight">Experience</span></h2>
-            <div class="split-layout">
-                <div class="skills">
-                    <button class="sidebar-btn" onclick="showSplitContent('exp', 'all', this)">Hardskills</button>
-                    <button class="sidebar-btn" onclick="showSplitContent('exp', 'all', this)">Softskill</button>
-                </div>
+            <h2 class="section-title">Professional <span class="highlight">Experience & Projects</span></h2>
+            
+            <div class="project-filter-bar">
+                <button class="filter-tab-btn active" onclick="filterProjectCategory('all', this)">All Works</button>
+                <button class="filter-tab-btn" onclick="filterProjectCategory('featured', this)">Featured Projects</button>
+                <button class="filter-tab-btn" onclick="filterProjectCategory('ml', this)">Machine Learning & CV</button>
+                <button class="filter-tab-btn" onclick="filterProjectCategory('iot', this)">IoT & Embedded Systems</button>
+                <button class="filter-tab-btn" onclick="filterProjectCategory('robotics', this)">Robotics</button>
+                <button class="filter-tab-btn" onclick="filterProjectCategory('events', this)">Events</button>
+            </div>
 
-                <div class="split-sidebar">
-                    <button class="sidebar-btn active" onclick="showSplitContent('exp', 'all', this)">All Projects</button>
-                    <button class="sidebar-btn" onclick="showSplitContent('exp', 'ai-iot', this)">AI & IoT</button>
-                    <button class="sidebar-btn" onclick="showSplitContent('exp', 'embedded', this)">Embedded System</button>
-                    <button class="sidebar-btn" onclick="showSplitContent('exp', 'robotics', this)">Robotics</button>
-                </div>
-                
-                <div class="split-content" id="exp-content">
-                    <div class="card-item ai-iot">
-                        <h3>PhysioTrack: Smart Assistance for Stroke Therapy</h3>
-                        <p class="date">2026</p>
-                        <p>Sistem terapi berbasis AI & IoT terintegrasi (Pose estimation, Python, ESP32) untuk pemulihan medis.</p>
+            <div class="split-layout-container">
+                <div class="split-sidebar" id="experience-list-sidebar">
                     </div>
-                    <div class="card-item ai-iot">
-                        <h3>Disease Detection on Ginger Emprit Leaves</h3>
-                        <p class="date">2025</p>
-                        <p>Penelitian tugas akhir klasifikasi daun jahe menggunakan arsitektur YOLOv8 & YOLO11.</p>
-                    </div>
-                    <div class="card-item embedded">
-                        <h3>Synchronization & Protection System STM32 Microgrid</h3>
-                        <p class="date">2025</p>
-                        <p>Perancangan sistem kontrol dan proteksi kelistrikan pintar menggunakan mikrokontroler STM32.</p>
-                    </div>
-                    <div class="card-item embedded">
-                        <h3>Emergency Wireless Button for Hospital</h3>
-                        <p class="date">2025</p>
-                        <p>Pengembangan tombol panggil darurat hemat energi nirkabel untuk ruang rawat inap pasien.</p>
-                    </div>
-                    <div class="card-item robotics">
-                        <h3>Rescue Hexapod Robot</h3>
-                        <p class="date">2024</p>
-                        <p>Pengembangan algoritma 3-DOF Inverse Kinematics untuk pergerakan kaki robot penyelamat.</p>
+
+                <div class="split-main-display" id="experience-main-view">
+                    <div class="empty-placeholder">
+                        <i class="fas fa-arrow-left animate-bounce-x"></i>
+                        <p>Pilih salah satu daftar pengalaman atau proyek di sisi kiri untuk memuat informasi arsitektur teknis secara lengkap.</p>
                     </div>
                 </div>
             </div>
@@ -217,96 +204,101 @@
 
         <section id="awards" class="tab-content">
             <h2 class="section-title">Honors & <span class="highlight">Awards</span></h2>
-            <div class="split-layout">
-                <div class="split-sidebar">
-                    <button class="sidebar-btn active" onclick="showSplitContent('awd', 'competition', this)">All</button>
-                    <button class="sidebar-btn" onclick="showSplitContent('awd', 'bootcamp', this)">Robotics</button>
-                    <button class="sidebar-btn" onclick="showSplitContent('awd', 'bootcamp', this)">Embedded System</button>
-                </div>
-                <div class="split-content" id="awd-content">
-                    <div class="card-item competition">
-                        <h3><i class="fas fa-trophy highlight"></i> 1st Best Group - Samsung Innovation Campus</h3>
-                        <p class="date">Batch Seven (2026)</p>
+            <div class="split-layout-container">
+                <div class="split-sidebar" id="awards-sidebar">
                     </div>
-                    <div class="card-item competition">
-                        <h3><i class="fas fa-medal highlight"></i> 1st Renewable Energy Write Competition</h3>
-                        <p class="date">2025</p>
-                    </div>
-                    <div class="card-item competition">
-                        <h3><i class="fas fa-robot highlight"></i> Finalist KRI (Kontes Robot Indonesia) National</h3>
-                        <p class="date">2024 & 2022</p>
-                    </div>
-                    <div class="card-item bootcamp" style="display:none;">
-                        <h3><i class="fas fa-laptop-code highlight"></i> Full Stack Engineer - Coding Camp DBS</h3>
-                        <p class="date">2026</p>
-                    </div>
-                    <div class="card-item bootcamp" style="display:none;">
-                        <h3><i class="fas fa-microchip highlight"></i> AI and IoT Samsung Innovation Campus</h3>
-                        <p class="date">Batch Seven (2026)</p>
-                    </div>
+                <div class="split-main-display" id="awards-main-view">
+                    <div class="empty-placeholder"><p>Pilih penghargaan di sisi kiri untuk melihat kontribusi dan impact inovasi.</p></div>
                 </div>
             </div>
         </section>
 
         <section id="certification" class="tab-content">
-            <h2 class="section-title">Boothcamp ＆ <span class="highlight">Certifications</span></h2>
-            <div class="split-layout">
-                <div class="split-sidebar">
-                    <button class="sidebar-btn active" onclick="showSplitContent('cert', 'hardware', this)">Boothcamp</button>
-                    <button class="sidebar-btn" onclick="showSplitContent('cert', 'software', this)">Certifications</button>
-                </div>
-
-                <div class="split-sidebar">
-                    <button class="sidebar-btn active" onclick="showSplitContent('cert', 'hardware', this)">Hardware & Embedded</button>
-                    <button class="sidebar-btn" onclick="showSplitContent('cert', 'software', this)">Software & AI</button>
-                </div>
-                <div class="split-content" id="cert-content">
-                    <div class="card-item hardware">
-                        <h3>DSP From Ground Up™ on ARM Processor</h3>
-                        <p class="date">2025</p>
+            <h2 class="section-title">Professional <span class="highlight">Certifications</span></h2>
+            <div class="split-layout-container">
+                <div class="split-sidebar" id="cert-sidebar">
                     </div>
-                    <div class="card-item hardware">
-                        <h3>Advanced Embedded Systems Bare Metal Programming</h3>
-                        <p class="date">2024</p>
-                    </div>
-                    <div class="card-item software" style="display:none;">
-                        <h3>YOLOv8 & YOLO11: Custom Object Detection</h3>
-                        <p class="date">2025</p>
-                    </div>
+                <div class="split-main-display" id="cert-main-view">
+                    <div class="empty-placeholder"><p>Pilih sertifikasi untuk memverifikasi kredibilitas keahlian teknis.</p></div>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="tab-content">
-            <h2 class="section-title">Let's <span class="highlight">Collaborate</span></h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3 class="glow-text">Bagus Satrio Wicaksono, S.T.</h3>
-                    <p style="margin: 15px 0; color: var(--text-muted);">Silakan hubungi saya untuk diskusi teknis, rekayasa otomasi industri, atau peluang pengembangan embedded system.</p>
-                    
-                    <div class="contact-methods">
-                        <a href="mailto:bsatrio121@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> bsatrio121@gmail.com</a>
-                        <a href="https://linkedIn.com/in/satss101" target="_blank" class="contact-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                        <a href="https://instagram.com/bagussatrio._" target="_blank" class="contact-link"><i class="fab fa-instagram"></i> Instagram</a>
-                        
-                        <a href="CV_Bagus Satrio Wicaksono.docx" download="CV_Bagus Satrio Wicaksono.docx" class="download-btn-main">
-                            <i class="fas fa-file-download"></i> Download Full Resume
-                        </a>
+            <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+            <div class="contact-box-wrapper">
+                <div class="contact-branding">
+                    <div class="contact-avatar-container">
+                        <img src="resources/photos/Bagus Satrio Wicaksono.jpg" alt="Bagus Satrio" class="contact-avatar">
                     </div>
+                    <h3>Bagus Satrio Wicaksono</h3>
+                    <p>Terbuka untuk peluang karir rekayasa, proyek automasi industri, riset sistem cerdas, dan kolaborasi inovatif.</p>
+                    
+                    <div class="contact-channels">
+                        <a href="mailto:bsatrio121@gmail.com" class="channel-link"><i class="fas fa-envelope"></i> bsatrio121@gmail.com</a>
+                        <a href="https://linkedIn.com/in/satss101" target="_blank" class="channel-link"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
+                        <a href="https://instagram.com/bagussatrio._" target="_blank" class="channel-link"><i class="fab fa-instagram"></i> Instagram</a>
+                    </div>
+
+                    <a href="resources/files/CV_Bagus Satrio Wicaksono.pdf" download="CV_Bagus Satrio Wicaksono.pdf" class="download-resume-btn">
+                        <i class="fas fa-cloud-download-alt"></i> Download Full Resume (PDF)
+                    </a>
                 </div>
+
             </div>
         </section>
 
     </main>
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <p>&copy; 2026 Bagus Satrio Wicaksono. All rights reserved.</p>
-            <div class="footer-social">
-                <a href="https://linkedIn.com/in/satss101" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:bsatrio121@gmail.com"><i class="fas fa-envelope"></i></a>
-                <a href="https://instagram.com/bagussatrio._" target="_blank"><i class="fab fa-instagram"></i></a>
+    <div class="modal-backdrop-blur" id="global-detail-modal" onclick="closePopupModal(event)">
+        <div class="modal-card-content" onclick="event.stopPropagation()">
+            <button class="modal-close-x-btn" onclick="hideActiveModal()">&times;</button>
+            <div id="modal-dynamic-body-injector">
+                </div>
+        </div>
+    </div>
+
+    <div class="skill-level-tooltip-card" id="skill-hover-tooltip">
+        <div class="tooltip-header">
+            <span class="tooltip-icon-wrapper" id="tt-icon"><i class="fab fa-js"></i></span>
+            <div>
+                <h5 id="tt-name">TypeScript</h5>
+                <span class="tooltip-badge-level" id="tt-level">Advanced</span>
             </div>
+        </div>
+        <div class="tooltip-body">
+            <p>Proficiency Level:</p>
+            <div class="tooltip-stars" id="tt-stars">★★★★☆</div>
+            <small id="tt-desc">Deep production code expertise.</small>
+        </div>
+    </div>
+
+    <!-- FOOTER KOMPREHENSIF BENCHMARK -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-branding">
+                <div class="footer-logo">Bagus Satrio.</div>
+                <p class="footer-desc">Electronic & Automation System Engineer. Mengembangkan fondasi cerdas untuk industri cerdas masa kini.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#" onclick="switchTab('home')">Home</a></li>
+                    <li><a href="#" onclick="switchTab('journey')">Journey</a></li>
+                    <li><a href="#" onclick="switchTab('experience')">Experience</a></li>
+                    <li><a href="#" onclick="switchTab('projects')">Projects</a></li>
+                    <li><a href="#" onclick="switchTab('contact')">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-get-touch">
+                <h4>Get In Touch</h4>
+                <p>Terbuka untuk kolaborasi riset industri, embedded systems, dan AI integration.</p>
+                <a href="#" onclick="switchTab('contact')" class="footer-msg-btn">Contact Me</a>
+                <span class="response-time">Usually responds within 24 hours</span>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Bagus Satrio Wicaksono. All rights reserved.</p>
         </div>
     </footer>
 
