@@ -470,12 +470,13 @@ function switchTab(tabId) {
         renderExperienceTab('all');
         renderSkillsIconGrid();
     } else if (tabId === 'projects') {
-        renderProjectsSidebar();
-        renderProjectsGrid('all');
+        projectsSkillMode = 'hard';
+        renderProjectsSidebar('hard');
     } else if (tabId === 'awards') {
         renderAwardsLayout();
     } else if (tabId === 'certification') {
-        renderCertificationsLayout();
+        certSkillMode = 'hard';
+        renderCertificationsLayout('hard');
     }
 }
 
@@ -617,24 +618,25 @@ function renderSkillsIconGrid() {
 }
 
 // ================= PROJECTS TAB =================
-// State untuk projects
-let projectsSkillMode = 'hard'; // 'hard' | 'soft'
+let projectsSkillMode = 'hard';
 
 function renderProjectsSidebar(mode) {
     if (mode) projectsSkillMode = mode;
     const sidebar = document.getElementById('projects-sidebar-inner');
     if (!sidebar) return;
 
-    const cats = projectsSkillMode === 'hard' ? ProjectCategoriesHard : ProjectCategoriesSoft;
-    const db   = projectsSkillMode === 'hard' ? ProjectsDatabase       : SoftProjectsDatabase;
-    const defaultId = projectsSkillMode === 'hard' ? 'all' : 'soft-all';
+    const cats      = projectsSkillMode === 'hard' ? ProjectCategoriesHard : ProjectCategoriesSoft;
+    const db        = projectsSkillMode === 'hard' ? ProjectsDatabase       : SoftProjectsDatabase;
+    const defaultId = projectsSkillMode === 'hard' ? 'all'                  : 'soft-all';
 
     sidebar.innerHTML = `
         <div class="proj-skill-toggle">
-            <button class="proj-skill-btn ${projectsSkillMode === 'hard' ? 'active' : ''}" onclick="renderProjectsSidebar('hard'); renderProjectsGrid('${defaultId}')">
+            <button class="proj-skill-btn ${projectsSkillMode === 'hard' ? 'active' : ''}"
+                    onclick="renderProjectsSidebar('hard')">
                 <i class="fas fa-microchip"></i> Hard Skills
             </button>
-            <button class="proj-skill-btn ${projectsSkillMode === 'soft' ? 'active' : ''}" onclick="renderProjectsSidebar('soft'); renderProjectsGrid('soft-all')">
+            <button class="proj-skill-btn ${projectsSkillMode === 'soft' ? 'active' : ''}"
+                    onclick="renderProjectsSidebar('soft')">
                 <i class="fas fa-users"></i> Soft Skills
             </button>
         </div>
@@ -642,27 +644,29 @@ function renderProjectsSidebar(mode) {
     `;
 
     cats.forEach(cat => {
-        const count = cat.id === 'all' || cat.id === 'soft-all'
+        const count = (cat.id === 'all' || cat.id === 'soft-all')
             ? db.length
             : db.filter(p => p.category.includes(cat.id)).length;
         const btn = document.createElement('button');
         btn.className = 'proj-cat-btn' + (cat.id === defaultId ? ' active' : '');
         btn.innerHTML = `${cat.label} <span class="proj-cat-count">${count}</span>`;
         btn.addEventListener('click', () => {
-            document.querySelectorAll('.proj-cat-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('#projects-sidebar-inner .proj-cat-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             renderProjectsGrid(cat.id);
         });
         sidebar.appendChild(btn);
     });
+
+    renderProjectsGrid(defaultId);
 }
 
 function renderProjectsGrid(categoryId) {
     const grid = document.getElementById('projects-grid');
     if (!grid) return;
-    const db = projectsSkillMode === 'hard' ? ProjectsDatabase : SoftProjectsDatabase;
+    const db    = projectsSkillMode === 'hard' ? ProjectsDatabase : SoftProjectsDatabase;
     const isAll = categoryId === 'all' || categoryId === 'soft-all';
-    const data = isAll ? db : db.filter(p => p.category.includes(categoryId));
+    const data  = isAll ? db : db.filter(p => p.category.includes(categoryId));
     grid.innerHTML = '';
     if (data.length === 0) {
         grid.innerHTML = '<p style="color:var(--text-muted);padding:20px;grid-column:1/-1;">Belum ada proyek untuk kategori ini.</p>';
@@ -684,8 +688,7 @@ function renderProjectsGrid(categoryId) {
 }
 
 function openProjectModal(projId) {
-    // Cari di kedua database
-    const proj = ProjectsDatabase.find(p => p.id === projId) || SoftProjectsDatabase.find(p => p.id === projId);
+    const proj = [...ProjectsDatabase, ...SoftProjectsDatabase].find(p => p.id === projId);
     if (!proj) return;
     const achHTML  = proj.achievements.map(a => `<div class="proj-achievement-item">${a}</div>`).join('');
     const docsHTML = proj.docs.map(d => `<img class="proj-modal-doc-img" src="${d}" alt="doc">`).join('');
@@ -693,7 +696,6 @@ function openProjectModal(projId) {
         const sk = SkillTooltipsDatabase[t] || {};
         return `<span class="proj-modal-tech-item"><i class="${sk.icon || 'fas fa-star'}"></i> ${t}</span>`;
     }).join('');
-
     document.getElementById('modal-dynamic-body-injector').innerHTML = `
         <img class="proj-modal-img" src="${proj.coverImg}" alt="${proj.title}">
         <h2 class="proj-modal-title">${proj.title}</h2>
@@ -735,24 +737,119 @@ function renderAwardsLayout() {
     });
 }
 
-function renderCertificationsLayout() {
-    const sidebar = document.getElementById('cert-sidebar');
-    const view = document.getElementById('cert-main-view');
+// ================= CERTIFICATIONS – layout sama persis dengan Projects =================
+let certSkillMode = 'hard';
+
+function renderCertificationsLayout(mode) {
+    if (mode) certSkillMode = mode;
+    const section = document.getElementById('certification');
+    if (!section) return;
+    section.innerHTML = `
+        <h2 class="section-title">Professional <span class="highlight">Certifications</span></h2>
+        <p class="chart-desc">Verified credentials across embedded systems, AI, and personal development.</p>
+        <div class="projects-layout">
+            <div class="projects-sidebar">
+                <div class="projects-sidebar-inner" id="cert-sidebar-inner"></div>
+            </div>
+            <div class="projects-grid-area">
+                <div class="projects-grid" id="cert-grid"></div>
+            </div>
+        </div>
+    `;
+    _buildCertSidebar();
+}
+
+function _buildCertSidebar() {
+    const sidebar = document.getElementById('cert-sidebar-inner');
     if (!sidebar) return;
-    sidebar.innerHTML = '';
-    CertificationsDatabase.forEach(cert => {
-        const div = document.createElement('div');
-        div.className = 'compact-menu-item';
-        div.innerHTML = `<h4>${cert.title}</h4><p>${cert.org}</p>`;
-        div.addEventListener('click', () => {
-            document.querySelectorAll('#cert-sidebar .compact-menu-item').forEach(c => c.classList.remove('active'));
-            div.classList.add('active');
-            view.innerHTML = `
-                <div class="detail-main-header"><h3>${cert.title}</h3><p style="color:var(--text-muted)">${cert.org} (${cert.date})</p></div>
-                <div class="detail-body-section"><h5>Kompetensi Tersertifikasi</h5><p>${cert.desc}</p></div>`;
+    const cats      = certSkillMode === 'hard' ? CertCategoriesHard    : CertCategoriesSoft;
+    const db        = certSkillMode === 'hard' ? CertificationsDatabase : CertificationsDatabaseSoft;
+    const defaultId = certSkillMode === 'hard' ? 'all-hard'             : 'soft-all';
+
+    sidebar.innerHTML = `
+        <div class="proj-skill-toggle">
+            <button class="proj-skill-btn ${certSkillMode === 'hard' ? 'active' : ''}"
+                    onclick="renderCertificationsLayout('hard')">
+                <i class="fas fa-microchip"></i> Hard Skills
+            </button>
+            <button class="proj-skill-btn ${certSkillMode === 'soft' ? 'active' : ''}"
+                    onclick="renderCertificationsLayout('soft')">
+                <i class="fas fa-users"></i> Soft Skills
+            </button>
+        </div>
+        <div class="proj-sidebar-header">Browse by Category</div>
+    `;
+
+    cats.forEach(cat => {
+        const count = (cat.id === 'all-hard' || cat.id === 'soft-all')
+            ? db.length
+            : db.filter(c => c.category.includes(cat.id)).length;
+        const btn = document.createElement('button');
+        btn.className = 'proj-cat-btn' + (cat.id === defaultId ? ' active' : '');
+        btn.innerHTML = `${cat.label} <span class="proj-cat-count">${count}</span>`;
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('#cert-sidebar-inner .proj-cat-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            _renderCertGrid(cat.id);
         });
-        sidebar.appendChild(div);
+        sidebar.appendChild(btn);
     });
+
+    _renderCertGrid(defaultId);
+}
+
+function _renderCertGrid(categoryId) {
+    const grid = document.getElementById('cert-grid');
+    if (!grid) return;
+    const db    = certSkillMode === 'hard' ? CertificationsDatabase : CertificationsDatabaseSoft;
+    const isAll = categoryId === 'all-hard' || categoryId === 'soft-all';
+    const data  = isAll ? db : db.filter(c => c.category.includes(categoryId));
+    grid.innerHTML = '';
+    if (data.length === 0) {
+        grid.innerHTML = '<p style="color:var(--text-muted);padding:20px;grid-column:1/-1;">Belum ada sertifikasi untuk kategori ini.</p>';
+        return;
+    }
+    data.forEach(cert => {
+        const card = document.createElement('div');
+        card.className = 'proj-card';
+        card.innerHTML = `
+            <img class="proj-card-img" src="${cert.coverImg}" alt="${cert.title}" onerror="this.style.background='var(--border-color)'">
+            <div class="proj-card-body">
+                <div class="proj-card-name">${cert.title}</div>
+                <div class="proj-card-about">${cert.org} &bull; ${cert.date}</div>
+            </div>
+        `;
+        card.addEventListener('click', () => openCertModal(cert.id));
+        grid.appendChild(card);
+    });
+}
+
+function openCertModal(certId) {
+    const cert = [...CertificationsDatabase, ...CertificationsDatabaseSoft].find(c => c.id === certId);
+    if (!cert) return;
+    const achHTML  = cert.achievements.map(a => `<div class="proj-achievement-item">${a}</div>`).join('');
+    const techHTML = cert.techs.map(t => {
+        const sk = SkillTooltipsDatabase[t] || {};
+        return `<span class="proj-modal-tech-item"><i class="${sk.icon || 'fas fa-certificate'}"></i> ${t}</span>`;
+    }).join('');
+    document.getElementById('modal-dynamic-body-injector').innerHTML = `
+        <img class="proj-modal-img" src="${cert.coverImg}" alt="${cert.title}" onerror="this.style.background='var(--border-color)'">
+        <h2 class="proj-modal-title">${cert.title}</h2>
+        <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:20px;">
+            <i class="fas fa-building"></i> ${cert.org} &nbsp;&bull;&nbsp;
+            <i class="far fa-calendar-alt"></i> ${cert.date}
+        </p>
+        <p class="modal-section-label">Description</p>
+        <div class="proj-modal-about">${cert.desc}</div>
+        <p class="modal-section-label">Key Competencies</p>
+        <div class="proj-modal-achievements-grid">${achHTML}</div>
+        <div class="proj-modal-tech-section">
+            <p class="modal-section-label">Skills Covered</p>
+            <div class="proj-modal-tech-grid">${techHTML}</div>
+        </div>
+    `;
+    document.getElementById('global-detail-modal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
 }
 
 // ================= MODAL CONTROLS =================
@@ -795,10 +892,9 @@ window.addEventListener('DOMContentLoaded', () => {
     drawRadarChart();
     renderExperienceTab('all');
     renderSkillsIconGrid();
-    renderProjectsSidebar();
-    renderProjectsGrid('all');
+    renderProjectsSidebar('hard');
     renderAwardsLayout();
-    renderCertificationsLayout();
+    renderCertificationsLayout('hard');
 });
 
 document.addEventListener('mousemove', event => {

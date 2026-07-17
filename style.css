@@ -1164,3 +1164,39 @@ body {
     .proj-modal-achievements-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 520px) { .projects-grid { grid-template-columns: 1fr; } }
+
+
+/* ================= HARD / SOFT SKILL TOGGLE ================= */
+.proj-skill-toggle {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.proj-skill-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    padding: 12px 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all var(--transition-speed);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+}
+
+.proj-skill-btn:hover {
+    color: var(--text-color);
+    background-color: rgba(229, 9, 20, 0.04);
+}
+
+.proj-skill-btn.active {
+    color: var(--primary-red);
+    border-bottom: 2px solid var(--primary-red);
+    background-color: rgba(229, 9, 20, 0.06);
+}
