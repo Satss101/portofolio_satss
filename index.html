@@ -14,8 +14,8 @@
             <div class="logo glow-text">Satrio.</div>
             <div class="nav-links">
                 <button id="nav-home" class="nav-btn active" onclick="switchTab('home')">Home</button>
-                <button id="nav-journey" class="nav-btn" onclick="switchTab('journey')">Journey</button>
-                <button id="nav-experience" class="nav-btn" onclick="switchTab('experience')">Projects</button>
+                <button id="nav-experience" class="nav-btn" onclick="switchTab('experience')">Journey</button>
+                <button id="nav-projects" class="nav-btn" onclick="switchTab('projects')">Projects</button>
                 <button id="nav-awards" class="nav-btn" onclick="switchTab('awards')">Awards</button>
                 <button id="nav-certification" class="nav-btn" onclick="switchTab('certification')">Certification</button>
                 <button id="nav-contact" class="nav-btn" onclick="switchTab('contact')">Contact</button>
@@ -36,7 +36,7 @@
                         Electronic Engineer dengan pengalaman praktis sebagai Manufacturing Engineer di Polytron Indonesia. Spesialisasi dalam Industrial Internet of Things (IIoT), Embedded Systems, Machine Learning, Computer Vision, dan 3D Design. Ahli dalam pemrograman bare-metal, pengembangan arsitektur perangkat keras cerdas, serta integrasi AI untuk kebutuhan automasi industri modern.
                     </p>
                     <div class="cta-buttons">
-                        <button class="action-btn-primary" onclick="switchTab('journey')">Lihat Pengalaman</button>
+                        <button class="action-btn-primary" onclick="switchTab('experience')">Lihat Pengalaman</button>
                         <button class="action-btn-secondary" onclick="switchTab('contact')">Mari Kolaborasi</button>
                     </div>
                 </div>
@@ -88,116 +88,38 @@
             </div>
         </section>
 
-        <section id="journey" class="tab-content">
-            <h2 class="section-title">My <span class="highlight">Journey & Core Skills</span></h2>
-            <div class="journey-grid-layout">
-                <div class="journey-right">
-                    <h3>Garis Waktu Karir & Edukasi</h3>
-                    <p class="chart-desc">Arahkan kursor atau sentuh kartu pengalaman untuk melihat rincian spesifikasi level keahlian (Skala 1 - 5).</p>
-                    
-                    <div class="timeline-container">
-                        <div class="timeline-card" onmouseenter="showTimelineSkills('polytron_full')">
-                            <span class="timeline-badge-date">Januari 2026 – Present</span>
-                            <h4>Fulltime Manufacturing Engineer</h4>
-                            <h5>PT Hartono Istana Teknologi (Polytron)</h5>
-                            <p>Merancang solusi Industri 4.0 lewat implementasi teknologi automasi dan arsitektur IIoT skala pabrik.</p>
-                            <div class="dynamic-skill-score" id="skills-polytron_full">
-                                <div class="score-row"><span>IIoT Architecture</span><span class="stars">★★★★★ 5.0</span></div>
-                                <div class="score-row"><span>Workflow Optimization</span><span class="stars">★★★★☆ 4.0</span></div>
-                                <div class="score-row"><span>Automation Control</span><span class="stars">★★★★★ 4.8</span></div>
-                            </div>
-                        </div>
+        <!-- ===== TAB EXPERIENCE ===== -->
+        <section id="experience" class="tab-content">
+            <h2 class="section-title">Professional <span class="highlight">Experience</span></h2>
+            <p class="chart-desc">Six roles across engineering, from intern to full-time engineer.</p>
 
-                        <div class="timeline-card" onmouseenter="showTimelineSkills('polytron_intern')">
-                            <span class="timeline-badge-date">Sept 2024 – Maret 2025</span>
-                            <h4>Intern Research Function Checker Audio</h4>
-                            <h5>PT Hartono Istana Teknologi (Polytron)</h5>
-                            <p>Membangun perangkat Function Checker audio berbasis microchip bare-metal dengan pemotongan biaya produksi masif.</p>
-                            <div class="dynamic-skill-score" id="skills-polytron_intern">
-                                <div class="score-row"><span>Bare-Metal C</span><span class="stars">★★★★★ 5.0</span></div>
-                                <div class="score-row"><span>STM32 Hardware</span><span class="stars">★★★★★ 4.9</span></div>
-                                <div class="score-row"><span>Circuit Design</span><span class="stars">★★★★☆ 4.5</span></div>
-                            </div>
-                        </div>
+            <div class="exp-filter-bar">
+                <button class="exp-filter-btn active" onclick="filterExperience('all', this)">All</button>
+                <button class="exp-filter-btn" onclick="filterExperience('fulltime', this)"><i class="fas fa-briefcase"></i> Full-time <span class="exp-filter-count" id="count-fulltime"></span></button>
+                <button class="exp-filter-btn" onclick="filterExperience('parttime', this)"><i class="fas fa-clock"></i> Part-Time <span class="exp-filter-count" id="count-parttime"></span></button>
+                <button class="exp-filter-btn" onclick="filterExperience('internship', this)"><i class="fas fa-user-graduate"></i> Internship <span class="exp-filter-count" id="count-internship"></span></button>
+            </div>
 
-                        <div class="timeline-card" onmouseenter="showTimelineSkills('dicoding')">
-                            <span class="timeline-badge-date">Agustus 2025 – Present</span>
-                            <h4>Freelance External Code Reviewer (ML)</h4>
-                            <h5>PT Dicoding Akademi Indonesia</h5>
-                            <p>Mengevaluasi standarisasi, skalabilitas, dan kebersihan kode pemrograman Machine Learning ribuan developer.</p>
-                            <div class="dynamic-skill-score" id="skills-dicoding">
-                                <div class="score-row"><span>Python Programming</span><span class="stars">★★★★★ 4.9</span></div>
-                                <div class="score-row"><span>Machine Learning Pipeline</span><span class="stars">★★★★★ 4.7</span></div>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-card" onmouseenter="showTimelineSkills('inahef')">
-                            <span class="timeline-badge-date">Januari 2026 – Present</span>
-                            <h4>Intern Information Engineer</h4>
-                            <h5>PTPI</h5>
-                            <p>Merancang solusi automasi dan arsitektur IIoT skala pabrik.</p>
-                            <div class="dynamic-skill-score" id="skills-inahef">
-                                <div class="score-row"><span>IIoT Architecture</span><span class="stars">★★★★★ 5.0</span></div>
-                                <div class="score-row"><span>Workflow Optimization</span><span class="stars">★★★★☆ 4.0</span></div>
-                                <div class="score-row"><span>Automation Control</span><span class="stars">★★★★★ 4.8</span></div>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-card" onmouseenter="showTimelineSkills('fds')">
-                            <span class="timeline-badge-date">Januari 2026 – Present</span>
-                            <h4>Intern Electronic Engineer</h4>
-                            <h5>PT Full Drone Solutions</h5>
-                            <p>Merancang solusi Industri arsitektur IIoT skala pabrik.</p>
-                            <div class="dynamic-skill-score" id="skills-fds">
-                                <div class="score-row"><span>IIoT Architecture</span><span class="stars">★★★★★ 5.0</span></div>
-                                <div class="score-row"><span>Workflow Optimization</span><span class="stars">★★★★☆ 4.0</span></div>
-                                <div class="score-row"><span>Automation Control</span><span class="stars">★★★★★ 4.8</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="journey-left">
-                    <div class="skills-matrix-box">
-                        <h4>Hard Skills Matrix</h4>
-                        <div class="matrix-tags">
-                            <span class="matrix-tag">C/C++</span>
-                            <span class="matrix-tag">Python</span>
-                            <span class="matrix-tag">STM32 (Cortex M4)</span>
-                            <span class="matrix-tag">Bare-Metal Programming</span>
-                            <span class="matrix-tag">TensorFlow</span>
-                            <span class="matrix-tag">YOLOv8 & v11</span>
-                            <span class="matrix-tag">Industrial IoT</span>
-                            <span class="matrix-tag">PCB Design (Altium/Eagle)</span>
-                            <span class="matrix-tag">Node-RED</span>
-                            <span class="matrix-tag">Modbus TCP</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="exp-cards-list" id="exp-cards-list"></div>
+
+            <div class="exp-skills-section">
+                <h3 class="exp-skills-title">Tech I Reach For</h3>
+                <p class="chart-desc">The ones I reach for most. Hover untuk melihat detail level keahlian.</p>
+                <div class="skills-icon-grid" id="skills-icon-grid"></div>
             </div>
         </section>
 
-        <section id="experience" class="tab-content">
-            <h2 class="section-title">Professional <span class="highlight">Experience & Projects</span></h2>
-            
-            <div class="project-filter-bar">
-                <button class="filter-tab-btn active" onclick="filterProjectCategory('all', this)">All Works</button>
-                <button class="filter-tab-btn" onclick="filterProjectCategory('featured', this)">Featured Projects</button>
-                <button class="filter-tab-btn" onclick="filterProjectCategory('ml', this)">Machine Learning & CV</button>
-                <button class="filter-tab-btn" onclick="filterProjectCategory('iot', this)">IoT & Embedded Systems</button>
-                <button class="filter-tab-btn" onclick="filterProjectCategory('robotics', this)">Robotics</button>
-                <button class="filter-tab-btn" onclick="filterProjectCategory('events', this)">Events</button>
-            </div>
+        <!-- ===== TAB PROJECTS ===== -->
+        <section id="projects" class="tab-content">
+            <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
+            <p class="chart-desc">Selected work across robotics, machine learning, IoT, and social impact.</p>
 
-            <div class="split-layout-container">
-                <div class="split-sidebar" id="experience-list-sidebar">
-                    </div>
-
-                <div class="split-main-display" id="experience-main-view">
-                    <div class="empty-placeholder">
-                        <i class="fas fa-arrow-left animate-bounce-x"></i>
-                        <p>Pilih salah satu daftar pengalaman atau proyek di sisi kiri untuk memuat informasi arsitektur teknis secara lengkap.</p>
-                    </div>
+            <div class="projects-layout">
+                <div class="projects-sidebar">
+                    <div class="projects-sidebar-inner" id="projects-sidebar-inner"></div>
+                </div>
+                <div class="projects-grid-area">
+                    <div class="projects-grid" id="projects-grid"></div>
                 </div>
             </div>
         </section>
@@ -284,9 +206,9 @@
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#" onclick="switchTab('home')">Home</a></li>
-                    <li><a href="#" onclick="switchTab('journey')">Journey</a></li>
                     <li><a href="#" onclick="switchTab('experience')">Experience</a></li>
                     <li><a href="#" onclick="switchTab('projects')">Projects</a></li>
+                    <li><a href="#" onclick="switchTab('awards')">Awards</a></li>
                     <li><a href="#" onclick="switchTab('contact')">Contact</a></li>
                 </ul>
             </div>
